@@ -1,11 +1,11 @@
 import React from 'react'
-import AboutScreen from '../screens/About'
+// import AboutScreen from '.scree/AboutScreen'
 
 const page = () => {
   return (
     <div>
       <div>
-        <AboutScreen/>
+        {/* <AboutScreen/> */}
       </div>
     </div>
   )
