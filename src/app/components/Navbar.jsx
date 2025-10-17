@@ -21,7 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`px-6 py-4 transition-all duration-300 z-50  ${
+    <nav className={`px-6 py-4 transition-all duration-300 z-100  ${
       isScrolled ? 'fixed top-0 left-0 right-0 z-50 bg-white shadow-md' : ''
     }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">

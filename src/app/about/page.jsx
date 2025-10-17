@@ -4,9 +4,7 @@ import AboutScreen from '../screens/AboutScreen'
 const page = () => {
   return (
     <div>
-      <div>
-        <AboutScreen/>
-      </div>
+      <AboutScreen />
     </div>
   )
 }

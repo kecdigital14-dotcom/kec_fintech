@@ -62,7 +62,7 @@ export default function MyCompanies() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white p-8">
+    <div className="min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white p-8 z-0">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 

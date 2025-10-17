@@ -79,7 +79,7 @@ export default function OtherHero({
 
   return (
     <section 
-      className="relative w-full h-96 md:h-[490px] flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full h-96 md:h-[490px] flex items-center justify-center overflow-hidden bg-black z-10"
     >
       {/* Gradient Background Base */}
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-teal-950 to-slate-950"></div>

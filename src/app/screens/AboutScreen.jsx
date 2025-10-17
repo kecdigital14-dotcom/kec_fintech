@@ -12,11 +12,13 @@ const AboutScreen = () => {
     return (
         <div>
             <Navbar />
-            <OtherHero title= "About Us " breadcrumbLabel="Smart Finance for a Smarter You."/>
-            <About4thSection/>
-            <About1stSection/>
-            <About5thSection/>
-            <Footer/>
+            <OtherHero title="About Us " breadcrumbLabel="Smart Finance for a Smarter You." />
+            <div className="relative z-40">
+                <About4thSection />
+            </div>
+            <About1stSection />
+            <About5thSection />
+            <Footer />
             {/* <About2ndSection/> */}
         </div>
     )
