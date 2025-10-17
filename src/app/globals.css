@@ -5,8 +5,11 @@
 
 @layer base {
   body {
-    background-color: #e8e6df;
+  
+   
   }
+
+
 }
 
 @layer utilities {
@@ -19,6 +22,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

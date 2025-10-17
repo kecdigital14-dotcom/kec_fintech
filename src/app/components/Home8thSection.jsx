@@ -1,8 +1,12 @@
+"use client";
+
 import React, { useState } from 'react';
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Home8thSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const testimonials = [
     {
@@ -29,113 +33,335 @@ const Home8thSection = () => {
   ];
 
   const nextTestimonial = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const current = testimonials[currentIndex];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.7 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const badgePop = {
+    hidden: { opacity: 0, scale: 0.3, rotate: -180 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.68, -0.55, 0.265, 1.55]
+      }
+    }
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 50 : -50,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -50 : 50,
+      opacity: 0
+    })
+  };
+
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-stone-50 via-white to-stone-50 py-4 overflow-hidden">
-      {/* Dotted World Map Background */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1" fill="#84cc16" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dotPattern)" />
-        </svg>
+    <section className="relative min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white py-4 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/12 rounded-full blur-3xl"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+          <motion.div 
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.h2 
+              className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
+              variants={fadeInUp}
+              animate={{ opacity: [0.9, 1, 0.9] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            >
               Client Testimonials
-            </h2>
-            <p className="text-gray-600 mt-4 text-lg">
+            </motion.h2>
+            <motion.p 
+              className="text-emerald-200/75 mt-4 text-lg"
+              variants={fadeInUp}
+            >
               Hear from our satisfied investors and clients about their experience
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
             {/* Left Side - Image and Rating */}
-            <div className="flex flex-col items-center lg:items-start">
-              <div className="relative">
+            <motion.div 
+              className="flex flex-col items-center lg:items-start"
+              variants={fadeInLeft}
+            >
+              <div className="relative group">
                 {/* Profile Image */}
-                <div className="w-72 h-72 rounded-full overflow-hidden border-8 border-white shadow-2xl">
-                  <img 
-                    src={current.image}
-                    alt={current.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentIndex}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.5 }}
+                    className="w-72 h-72 rounded-full overflow-hidden border-8 border-emerald-500/20 shadow-2xl"
+                  >
+                    <motion.div
+                      animate={{ y: [0, -20, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{ y: -24 }}
+                    >
+                      <motion.div
+                        animate={{ 
+                          boxShadow: [
+                            "0 0 20px rgba(34, 197, 94, 0.2)",
+                            "0 0 40px rgba(34, 197, 94, 0.5)",
+                            "0 0 20px rgba(34, 197, 94, 0.2)"
+                          ]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <motion.img 
+                          src={current.image}
+                          alt={current.name}
+                          className="w-full h-full object-cover"
+                          animate={{ 
+                            filter: ["brightness(1)", "brightness(1.05)", "brightness(1)"],
+                            scale: [1, 1.02, 1]
+                          }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
 
                 {/* Quote Icon Badge */}
-                <div className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-lime-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
-                  <Quote className="w-7 h-7 text-white fill-white" />
-                </div>
+                <motion.div 
+                  className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-full flex items-center justify-center shadow-lg"
+                  variants={badgePop}
+                  whileHover={{ y: -4 }}
+                >
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  >
+                    <Quote className="w-7 h-7 text-white fill-white" />
+                  </motion.div>
+                </motion.div>
               </div>
 
               {/* Star Rating */}
-              <div className="mt-8 bg-white rounded-full px-6 py-3 shadow-md border border-gray-100">
+              <motion.div 
+                className="mt-8 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full px-6 py-3 shadow-md border border-emerald-500/20"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                animate={{ 
+                  boxShadow: [
+                    "0 0 0px rgba(34, 197, 94, 0)",
+                    "0 0 15px rgba(34, 197, 94, 0.3)",
+                    "0 0 0px rgba(34, 197, 94, 0)"
+                  ]
+                }}
+                transition={{ 
+                  opacity: { delay: 0.6, duration: 0.6 },
+                  x: { delay: 0.6, duration: 0.6 },
+                  boxShadow: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
                 <div className="flex gap-1">
                   {[...Array(current.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        y: [0, -5, 0],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity, 
+                        ease: "easeInOut",
+                        delay: i * 0.1 
+                      }}
+                    >
+                      <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    </motion.div>
                   ))}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Right Side - Testimonial Content */}
-            <div className="space-y-6">
-              <div className="prose prose-lg">
-                <p className="text-gray-900 text-lg leading-relaxed">
-                  {current.quote}
-                </p>
-              </div>
+            <motion.div 
+              className="space-y-6"
+              variants={fadeInRight}
+            >
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="prose prose-lg">
+                    <motion.p 
+                      className="text-emerald-200/75 text-lg leading-relaxed"
+                      animate={{ opacity: [0.9, 1, 0.9] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      {current.quote}
+                    </motion.p>
+                  </div>
 
-              {/* Author Info */}
-              <div className="pt-4">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                  {current.name} <span className="text-gray-400 font-normal">/</span>
-                </h3>
-                <p className="text-gray-600">
-                  {current.role}
-                </p>
-              </div>
+                  {/* Author Info */}
+                  <motion.div 
+                    className="pt-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <motion.h3 
+                      className="text-2xl font-bold text-white mb-1"
+                      animate={{ opacity: [0.9, 1, 0.9] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+                    >
+                      {current.name} <span className="text-emerald-400 font-normal">/</span>
+                    </motion.h3>
+                    <p className="text-emerald-200/75">
+                      {current.role}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
 
               {/* Navigation Buttons */}
-              <div className="flex gap-3 pt-4">
-                <button 
+              <motion.div 
+                className="flex gap-3 pt-4"
+                variants={fadeInUp}
+              >
+                <motion.button 
                   onClick={prevTestimonial}
-                  className="w-12 h-12 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg"
+                  className="w-12 h-12 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full flex items-center justify-center shadow-md border border-emerald-500/20"
+                  whileHover={{ 
+                    y: -4,
+                    boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ 
+                    y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                  }}
                   aria-label="Previous testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5 text-gray-700" />
-                </button>
-                <button 
+                  <ChevronLeft className="w-5 h-5 text-emerald-300" />
+                </motion.button>
+                <motion.button 
                   onClick={nextTestimonial}
-                  className="w-12 h-12 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg"
+                  className="w-12 h-12 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full flex items-center justify-center shadow-md border border-emerald-500/20"
+                  whileHover={{ 
+                    y: -4,
+                    boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ 
+                    y: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }
+                  }}
                   aria-label="Next testimonial"
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-700" />
-                </button>
-              </div>
-            </div>
-          </div>
+                  <ChevronRight className="w-5 h-5 text-emerald-300" />
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-lime-200 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-emerald-200 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
     </section>
   );
 };

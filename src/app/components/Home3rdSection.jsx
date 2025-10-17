@@ -1,143 +1,381 @@
+"use client";
+
 import { Lightbulb, Wrench, ArrowUpRight, Play } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Home3rdSection() {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpMain = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.9, ease: "easeOut" }
+    }
+  };
+
+  const badgePop = {
+    hidden: { opacity: 0, scale: 0.3, rotate: -180 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.68, -0.55, 0.265, 1.55]
+      }
+    }
+  };
+
   return (
-    <section className="w-full bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="w-full bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/12 rounded-full blur-3xl"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Left Side - Image Collage */}
           <div className="relative">
             {/* Main Image - Two people working */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-              <img 
+            <motion.div 
+              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/20"
+              variants={slideUpMain}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
+              <motion.img 
                 src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=700&fit=crop" 
                 alt="Financial advisors meeting"
                 className="w-full h-[500px] object-cover"
+                animate={{ opacity: [0.8, 1, 0.8] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+            </motion.div>
 
             {/* Bottom Left Image - Person working on laptop */}
-            <div className="absolute bottom-0 left-0 w-48 h-64 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white">
-              <img 
+            <motion.div 
+              className="absolute bottom-0 left-0 w-48 h-64 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-emerald-500/50"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              animate={{ y: [0, -20, 0] }}
+              whileHover={{ y: -28 }}
+              style={{ animation: "none" }}
+            >
+              <motion.img 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop" 
                 alt="Financial analyst working"
                 className="w-full h-full object-cover"
+                animate={{ opacity: [0.8, 1, 0.8] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               />
-            </div>
+            </motion.div>
 
             {/* Bottom Right Image - Woman on phone */}
-            <div className="absolute bottom-0 right-0 w-56 h-72 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white">
-              <img 
+            <motion.div 
+              className="absolute bottom-0 right-0 w-56 h-72 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-emerald-500/50"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              animate={{ y: [0, -20, 0] }}
+              whileHover={{ y: -28 }}
+              style={{ animation: "none" }}
+            >
+              <motion.img 
                 src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=600&fit=crop" 
                 alt="Investment consultant"
                 className="w-full h-full object-cover"
+                animate={{ opacity: [0.8, 1, 0.8] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
-            </div>
+            </motion.div>
 
             {/* Expert Team Badge */}
-            <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-30 bg-white rounded-full px-6 py-3 shadow-2xl flex items-center gap-3">
-              <span className="font-semibold text-gray-800">Expert Team</span>
+            <motion.div 
+              className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-30 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-full px-6 py-3 shadow-2xl flex items-center gap-3"
+              variants={badgePop}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              animate={{ 
+                boxShadow: [
+                  "0 10px 30px rgba(34, 197, 94, 0.2)",
+                  "0 10px 50px rgba(34, 197, 94, 0.4)",
+                  "0 10px 30px rgba(34, 197, 94, 0.2)"
+                ]
+              }}
+              transition={{ 
+                boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
+            >
+              <span className="font-semibold text-white">Expert Team</span>
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-400 to-red-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-green-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                {[
+                  { from: 'emerald-400', to: 'teal-600', delay: 0 },
+                  { from: 'teal-500', to: 'cyan-600', delay: 0.2 },
+                  { from: 'emerald-600', to: 'teal-800', delay: 0.4 },
+                  { from: 'cyan-400', to: 'teal-500', delay: 0.6 }
+                ].map((color, i) => (
+                  <motion.div
+                    key={i}
+                    className={`w-8 h-8 rounded-full bg-gradient-to-br from-${color.from} to-${color.to} border-2 border-emerald-500/50`}
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ 
+                      duration: 2.5, 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: color.delay 
+                    }}
+                  />
+                ))}
+                <motion.div 
+                  className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 border-2 border-emerald-500/50 flex items-center justify-center text-white text-xs font-bold"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
                   9+
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Side - Content */}
           <div className="space-y-8">
             {/* Section Label */}
-            <div className="flex items-center gap-2">
-              <Play className="w-4 h-4 text-green-500 fill-green-500" />
-              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">WHO WE ARE</span>
-            </div>
+            <motion.div 
+              className="flex items-center gap-2"
+              variants={fadeInRight}
+            >
+              <motion.div
+                animate={{ x: [0, 15, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Play className="w-4 h-4 text-emerald-400 fill-emerald-400" />
+              </motion.div>
+              <span className="text-sm font-semibold text-emerald-300 uppercase tracking-wider">WHO WE ARE</span>
+            </motion.div>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+            <motion.h2 
+              className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent leading-tight"
+              variants={fadeInRight}
+            >
               Your Trusted Partner in Financial Growth
-            </h2>
+            </motion.h2>
 
             {/* Description */}
-            <p className="text-gray-600 leading-relaxed">
+            <motion.p 
+              className="text-emerald-200/75 leading-relaxed"
+              variants={fadeInUp}
+            >
               Finclix is your premier destination for comprehensive financial solutions, offering expert investment strategies and wealth management services tailored to secure your financial future.
-            </p>
+            </motion.p>
 
             {/* Features */}
             <div className="space-y-6">
               {/* Wealth Management */}
-              <div className="flex gap-4">
+              <motion.div 
+                className="flex gap-4"
+                variants={fadeInUp}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ 
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md">
-                    <Lightbulb className="w-6 h-6 text-gray-800" />
-                  </div>
+                  <motion.div 
+                    className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center shadow-md"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Lightbulb className="w-6 h-6 text-white" />
+                    </motion.div>
+                  </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Wealth Management</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-white mb-2">Wealth Management</h3>
+                  <p className="text-emerald-200/75 text-sm leading-relaxed">
                     In today's dynamic financial markets, strategic wealth management is essential for achieving long-term financial security and growth.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Portfolio Optimization */}
-              <div className="flex gap-4">
+              <motion.div 
+                className="flex gap-4"
+                variants={fadeInUp}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ 
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
+                }}
+              >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md">
-                    <Wrench className="w-6 h-6 text-gray-800" />
-                  </div>
+                  <motion.div 
+                    className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center shadow-md"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                    >
+                      <Wrench className="w-6 h-6 text-white" />
+                    </motion.div>
+                  </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Portfolio Optimization</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-white mb-2">Portfolio Optimization</h3>
+                  <p className="text-emerald-200/75 text-sm leading-relaxed">
                     Our data-driven approach ensures your investment portfolio is perfectly balanced to maximize returns while managing risk effectively.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Progress Bar */}
-            <div>
+            <motion.div variants={fadeInUp}>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-semibold text-gray-700">Client Satisfaction</span>
-                <span className="text-sm font-bold text-gray-900">95%</span>
+                <span className="text-sm font-semibold text-emerald-300">Client Satisfaction</span>
+                <motion.span 
+                  className="text-sm font-bold text-white"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  95%
+                </motion.span>
               </div>
-              <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-green-400 to-teal-500 rounded-full" style={{ width: '95%' }}></div>
+              <div className="w-full h-2 bg-emerald-500/20 rounded-full overflow-hidden">
+                <motion.div 
+                  className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full"
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "95%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
+                />
               </div>
-            </div>
+            </motion.div>
 
             {/* Bottom Section - CTA and Founder */}
             <div className="flex items-center gap-6 pt-4">
               {/* Get Started Button */}
-              <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <motion.button 
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-400 to-teal-500 text-black font-semibold px-8 py-4 rounded-full shadow-lg"
+                variants={fadeInUp}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(34, 197, 94, 0.4)",
+                  y: -8
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
                 Start Investing
-                <span className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-teal-600">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </button>
+                <motion.span 
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-teal-600"
+                  whileHover={{ rotate: 45 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowUpRight className="w-5 h-5" />
+                  </motion.div>
+                </motion.span>
+              </motion.button>
 
               {/* Founder Info */}
-              <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
-                  <img 
+              <motion.div 
+                className="flex items-center gap-3"
+                variants={fadeInUp}
+              >
+                <motion.div 
+                  className="w-14 h-14 rounded-full overflow-hidden border-2 border-emerald-500/50 shadow-md"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  whileHover={{ y: -5 }}
+                >
+                  <motion.img 
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" 
                     alt="John Williams"
                     className="w-full h-full object-cover"
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   />
-                </div>
+                </motion.div>
                 <div>
-                  <p className="font-bold text-gray-900 italic">John Williams</p>
-                  <p className="text-sm text-teal-600 font-semibold">Financial Advisor</p>
+                  <p className="font-bold text-white italic">John Williams</p>
+                  <p className="text-sm text-emerald-300 font-semibold">Financial Advisor</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

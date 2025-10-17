@@ -1,12 +1,10 @@
 import React from 'react'
-// import ContactInfo from '../screens/Contact'
+import ContactScreen from '../screens/ContactScreen'
 
 const page = () => {
   return (
     <div>
-      <div>
-        {/* <ContactInfo/> */}
-      </div>
+      <ContactScreen/>
     </div>
   )
 }
