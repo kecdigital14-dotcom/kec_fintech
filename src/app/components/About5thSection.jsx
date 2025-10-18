@@ -112,7 +112,7 @@ const About5thSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-8 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 

@@ -121,7 +121,7 @@ const Home8thSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white py-4 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white py-4 overflow-hidden pt-20">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 

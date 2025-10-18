@@ -8,7 +8,7 @@ const ServiceScreen = () => {
   return (
     <div>
       <Navbar/>
-      <OtherHero title= "Contact Us " breadcrumbLabel="Smart Finance for a Smarter You."/>
+      <OtherHero title= "Our Services" breadcrumbLabel="Smart Finance for a Smarter You."/>
          <AllServices/>
       <Footer/>
     </div>

@@ -102,14 +102,14 @@ const Home5thSection = () => {
       <div className="relative z-10 container mx-auto px-6">
         {/* Header Section */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
         >
           <motion.div 
-            className="flex items-center justify-center gap-3 mb-6"
+            className="flex items-center justify-center gap-3 mb-4"
             variants={fadeInDown}
           >
             <motion.div 
@@ -143,7 +143,7 @@ const Home5thSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 leading-tight mb-4"
+            className="text-5xl lg:text-[60px] font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 leading-tight mb-3"
             variants={fadeInUp}
           >
             Your Path to Financial

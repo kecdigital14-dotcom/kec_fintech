@@ -128,12 +128,13 @@ export default function MyCompanies() {
                 whileHover={{ opacity: 0.3 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="relative bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl overflow-hidden aspect-video flex items-center justify-center cursor-pointer group/video hover:shadow-2xl transition-all duration-300 border border-emerald-500/20">
+              <div className="relative rounded-2xl overflow-hidden aspect-video flex items-center justify-center cursor-pointer group/video hover:shadow-2xl transition-all duration-300 border border-emerald-500/20">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 6 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <PlayCircle className="w-20 h-20 text-emerald-400" />
+                  <img src="/kecfintech1.png" alt="" srcset="" />
+                  {/* <PlayCircle className="w-20 h-20 text-emerald-400" /> */}
                 </motion.div>
               </div>
               <p className="text-sm text-emerald-200/75 mt-3">Watch how we transform farming</p>
@@ -299,12 +300,13 @@ export default function MyCompanies() {
                 whileHover={{ opacity: 0.3 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="relative bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-2xl overflow-hidden aspect-video flex items-center justify-center cursor-pointer group/video hover:shadow-2xl transition-all duration-300 border border-cyan-500/20">
+              <div className="relative  rounded-2xl overflow-hidden aspect-video flex items-center justify-center cursor-pointer group/video hover:shadow-2xl transition-all duration-300 border border-cyan-500/20">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 6 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <PlayCircle className="w-20 h-20 text-cyan-400" />
+                  <img src="bannernew2.png" alt="" srcset="" />
+                  {/* <PlayCircle className="w-20 h-20 text-cyan-400" /> */}
                 </motion.div>
               </div>
               <p className="text-sm text-emerald-200/75 mt-3">Discover sustainable energy solutions</p>

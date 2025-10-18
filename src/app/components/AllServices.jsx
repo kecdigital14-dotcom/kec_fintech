@@ -148,80 +148,42 @@ const ServiceCard = ({ service, index }) => {
               }}
             />
             
-            <div className="relative bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl p-8 shadow-2xl overflow-hidden border-2 border-emerald-500/20 hover:border-emerald-400 transition-colors duration-300">
-              {/* Animated background shapes */}
-              <div className="absolute inset-0 opacity-10">
+            <div className="relative bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl overflow-hidden shadow-2xl border-2 border-emerald-500/20 hover:border-emerald-400 transition-colors duration-300">
+              {/* Image with overlay */}
+              <div className="relative h-96 overflow-hidden">
+                <motion.img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                  initial={{ scale: 1.2 }}
+                  animate={isInView ? { scale: 1 } : { scale: 1.2 }}
+                  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ scale: 1.1 }}
+                />
+                
+                {/* Gradient overlay */}
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div> */}
+                
+                {/* Animated shine effect */}
                 <motion.div 
-                  className="absolute top-0 right-0 w-40 h-40 bg-emerald-500 rounded-full -mr-20 -mt-20"
+                  className="absolute w-64 h-64 bg-white rounded-full blur-3xl opacity-10 pointer-events-none"
                   animate={{
-                    y: [0, -20, -40, -20, 0],
-                    x: [0, 10, 0, -10, 0]
+                    left: `${mousePosition.x - 128}px`,
+                    top: `${mousePosition.y - 128}px`
                   }}
                   transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 20
                   }}
                 />
-                <motion.div 
-                  className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500 rounded-full -ml-16 -mb-16"
-                  animate={{
-                    y: [0, -30, -50, -30, 0],
-                    x: [0, -15, 0, 15, 0]
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1
-                  }}
-                />
-              </div>
-              
-              {/* Animated shine effect */}
-              <motion.div 
-                className="absolute w-64 h-64 bg-white rounded-full blur-3xl opacity-20 pointer-events-none"
-                animate={{
-                  left: `${mousePosition.x - 128}px`,
-                  top: `${mousePosition.y - 128}px`
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 20
-                }}
-              />
-              
-              <div className="relative h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <motion.div 
-                    className="inline-block p-6 bg-emerald-500/10 rounded-full shadow-lg mb-4 border border-emerald-500/20"
-                    animate={{
-                      y: [0, -10, 0]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <motion.div
-                      animate={{
-                        rotate: 360
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    >
-                      <service.largeIcon className="text-emerald-400" size={60} />
-                    </motion.div>
-                  </motion.div>
+                     
+                {/* Bottom label */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
                   <motion.p 
-                    className="text-emerald-300 font-semibold text-lg"
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    className="text-emerald-300 font-semibold text-xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ delay: 0.5 }}
                   >
                     {service.title}
@@ -244,39 +206,42 @@ export default function AllServices() {
 
   const services = [
     {
-      title: "Web Development",
-      description: "Build powerful, scalable web applications with modern technologies and best practices. We create responsive, fast-loading websites that convert visitors into customers.",
+      title: "Portfolio Management",
+      description: "Build and optimize diversified investment portfolios tailored to your financial goals. We leverage advanced algorithms and market analysis to maximize returns while managing risk effectively.",
       icon: <Zap className="text-emerald-400" size={24} />,
       largeIcon: Zap,
+      image: "port1.jpg",
       features: [
-        "React, Next.js & Vue.js expertise",
-        "Responsive design for all devices",
-        "SEO optimized architecture",
-        "Lightning-fast performance"
+        "AI-driven asset allocation",
+        "Real-time portfolio rebalancing",
+        "Risk assessment & management",
+        "Tax-efficient strategies"
       ]
     },
     {
-      title: "UI/UX Design",
-      description: "Craft beautiful, intuitive user experiences that users love. Our design approach combines aesthetics with functionality to create interfaces that drive engagement.",
+      title: "Wealth Analytics",
+      description: "Gain deep insights into your financial health with comprehensive analytics and reporting. Our platform provides real-time tracking and predictive modeling to help you make informed investment decisions.",
       icon: <Shield className="text-emerald-400" size={24} />,
       largeIcon: Shield,
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       features: [
-        "User research & personas",
-        "Wireframing & prototyping",
-        "Accessibility compliance",
-        "Brand consistency"
+        "Performance tracking dashboard",
+        "Predictive market insights",
+        "Custom financial reports",
+        "Goal progress monitoring"
       ]
     },
     {
-      title: "Digital Strategy",
-      description: "Develop comprehensive digital strategies that align with your business goals. We analyze market trends and competition to create actionable roadmaps for growth.",
+      title: "Investment Advisory",
+      description: "Receive personalized investment guidance from our expert advisors and AI-powered recommendations. We analyze market trends and your unique financial situation to create tailored strategies for wealth growth.",
       icon: <BarChart3 className="text-emerald-400" size={24} />,
       largeIcon: BarChart3,
+       image: "invest1.jpg",
       features: [
-        "Market analysis & insights",
-        "Competitive positioning",
-        "Growth metrics tracking",
-        "ROI optimization"
+        "Personalized investment plans",
+        "Market trend analysis",
+        "Retirement planning support",
+        "Alternative investment options"
       ]
     }
   ];
@@ -335,7 +300,7 @@ export default function AllServices() {
             animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Comprehensive solutions tailored to elevate your digital presence and drive business growth
+            Comprehensive financial solutions tailored to elevate your investment portfolio and secure your financial future
           </motion.p>
           <motion.div 
             className="h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent rounded-full mx-auto mt-6"
@@ -378,7 +343,7 @@ export default function AllServices() {
               animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.7 }}
             >
-              Ready to Transform Your Business?
+              Ready to Transform Your Financial Future?
             </motion.h3>
             <motion.p 
               className="text-emerald-200/75 text-lg mb-8"
@@ -386,7 +351,7 @@ export default function AllServices() {
               animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              Get in touch with our team to discuss your project
+              Get in touch with our team to discuss your investment goals
             </motion.p>
             <motion.button 
               initial={{ opacity: 0, y: 20 }}
@@ -414,7 +379,7 @@ export default function AllServices() {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 bg-gradient-to-r from-emerald-400 to-teal-600 text-white font-semibold rounded-lg shadow-lg"
             >
-              Start Your Project
+              Start Investing Today
             </motion.button>
           </div>
         </motion.div>

@@ -147,7 +147,7 @@ const Home6thSection = () => {
               className="text-emerald-200/75 text-base leading-relaxed"
               variants={fadeInUp}
             >
-              Finolix is the destination where early adopters and innovation<br />
+              KEC is the destination where early adopters and innovation<br />
               enthusiasts discover cutting-edge technology
             </motion.p>
           </motion.div>

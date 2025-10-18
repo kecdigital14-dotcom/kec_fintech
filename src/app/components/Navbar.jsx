@@ -33,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
           <Link href="/" className="text-[#1a4d4d] hover:text-[#0f3838] transition-colors font-bold">
             Home
           </Link>
@@ -48,6 +48,9 @@ export default function Navbar() {
           </Link>
           <Link href="/thevision" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
             This Vision
+          </Link>
+           <Link href="/resources" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
+            Resources
           </Link>
           <Link href="/contact" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
             Contact Us

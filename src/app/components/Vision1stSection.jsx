@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle, FileText, Users } from 'lucide-react';
+import { Shield, TrendingUp, Lock } from 'lucide-react';
 
 export default function Vision1stSection() {
   const imageRef = useRef(null);
@@ -15,21 +15,21 @@ export default function Vision1stSection() {
 
   const features = [
     {
-      icon: CheckCircle,
-      title: "Certified & Accredited Labs",
-      description: "All tests are performed in ISO-certified laboratories.",
+      icon: Shield,
+      title: "Bank-Grade Security",
+      description: "Your investments are protected with military-grade encryption and multi-factor authentication.",
       delay: 0.3
     },
     {
-      icon: FileText,
-      title: "Secure Online Reports",
-      description: "Access your test results anytime, anywhere.",
+      icon: TrendingUp,
+      title: "Real-Time Market Data",
+      description: "Access live market insights and portfolio performance tracking 24/7.",
       delay: 0.4
     },
     {
-      icon: Users,
-      title: "Experienced Pathologists",
-      description: "Our team of highly qualified pathologists ensures accuracy.",
+      icon: Lock,
+      title: "Regulated & Compliant",
+      description: "Fully licensed and regulated by financial authorities to ensure your safety.",
       delay: 0.5
     }
   ];
@@ -116,21 +116,24 @@ export default function Vision1stSection() {
                 />
                 
                 <motion.img
-                  src="./vision2.jpg"
-                  alt="Lab professional"
-                  className="w-[450px] rounded-2xl shadow-lg relative z-10 border-2 border-emerald-500/20"
+                  src="/fintech5.jpg"
+                  alt="Financial professional analyzing investment data"
+                  className="w-[450px] h-[500px] rounded-2xl shadow-lg relative z-10 border-2 border-emerald-500/20"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
                 />
                 
                 {/* Decorative element */}
                 <motion.div 
-                  className="absolute -bottom-4 -right-4 w-24 h-24 bg-emerald-500/20 rounded-2xl -z-10"
+                  className="absolute -bottom-4 -right-4 w-24 h-24 bg-emerald-500/20 rounded-4xl -z-10"
                   initial={{ scale: 0, rotate: -45 }}
                   animate={isImageInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                />
+                  
+                >
+                  <img src="/fintech7.avif" alt="" srcset="" className='h-full rounded-2xl' />
+                  </motion.div>
               </motion.div>
             </div>
           </motion.div>
@@ -166,7 +169,7 @@ export default function Vision1stSection() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-emerald-200/75 text-base leading-relaxed"
               >
-                Our laboratory combines advanced diagnostic technology with a team of certified professionals to ensure every test result is accurate and reliable. We prioritize speed without compromising quality, delivering results that empower informed decisions.
+                Our platform combines cutting-edge fintech innovation with proven investment strategies to democratize wealth creation. We leverage AI-powered analytics and real-time market intelligence to deliver personalized investment solutions that align with your financial goals and risk tolerance.
               </motion.p>
             </div>
 
@@ -235,8 +238,8 @@ export default function Vision1stSection() {
                   />
                   
                   <motion.img
-                    src="./vision1.jpg"
-                    alt="Lab samples"
+                    src="/fintech4.jpg"
+                    alt="Investment growth charts"
                     className="rounded-2xl shadow-lg w-[250px] relative z-10 border-2 border-emerald-500/20"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.5 }}

@@ -125,9 +125,9 @@ export default function WhyUs1stSection() {
               />
               
               <motion.img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop"
+                src="/fintech1.jpg"
                 alt="Business Consultants"
-                className="w-full h-auto object-cover"
+                className="w-full h-[500px] object-cover"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />

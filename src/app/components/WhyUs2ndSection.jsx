@@ -58,7 +58,7 @@ export default function WhyUs2ndSection() {
             isVisible.header ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
             <span className="text-emerald-300 text-[10px] font-bold tracking-[3px] uppercase">
-              WORK PROCESS
+              INVESTMENT PROCESS
             </span>
             <div className="w-12 h-[2px] bg-emerald-400"></div>
           </div>
@@ -83,35 +83,35 @@ export default function WhyUs2ndSection() {
             }`} style={{ transformOrigin: 'top' }}></div>
 
             {/* Step 1 */}
-            <div className={`relative mb-16 flex gap-6 transition-all duration-700 ${
+            <div className={`relative mb-12 flex gap-6 transition-all duration-700 ${
               isVisible.steps ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <div className="flex-shrink-0 w-[44px] h-[44px] rounded-[10px] border-2 border-emerald-400 bg-transparent flex items-center justify-center text-emerald-400 font-bold text-[18px] relative z-10 hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300">
                 1
               </div>
               <div className="pt-[2px]">
-                <h3 className="text-[20px] font-bold mb-3 text-white">Sign up for free.</h3>
+                <h3 className="text-[20px] font-bold mb-3 text-white">Create Your Account</h3>
                 <p className="text-emerald-200/75 text-[14px] leading-[1.7]">
-                  To be able to create an account,<br />
-                  input your email address and<br />
-                  password.
+                  Start your investment journey by<br />
+                  signing up with your email and<br />
+                  secure credentials.
                 </p>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className={`relative mb-16 flex gap-6 transition-all duration-700 delay-200 ${
+            <div className={`relative mb-10 flex gap-6 transition-all duration-700 delay-200 ${
               isVisible.steps ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <div className="flex-shrink-0 w-[44px] h-[44px] rounded-[10px] border-2 border-emerald-400 bg-transparent flex items-center justify-center text-emerald-400 font-bold text-[18px] relative z-10 hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300">
                 2
               </div>
               <div className="pt-[2px]">
-                <h3 className="text-[20px] font-bold mb-3 text-white">Select a Template</h3>
+                <h3 className="text-[20px] font-bold mb-3 text-white">Choose Investment Strategy</h3>
                 <p className="text-emerald-200/75 text-[14px] leading-[1.7] mb-6">
-                  Our tools can help you produce<br />
-                  everything from product<br />
-                  descriptions and blog posts to
+                  Select from diversified portfolios,<br />
+                  stocks, bonds, crypto assets, or<br />
+                  customize your own strategy
                 </p>
               </div>
             </div>
@@ -124,11 +124,11 @@ export default function WhyUs2ndSection() {
                 3
               </div>
               <div className="pt-[2px]">
-                <h3 className="text-[20px] font-bold mb-3 text-white">Describe your Idea</h3>
+                <h3 className="text-[20px] font-bold mb-3 text-white">Set Your Goals</h3>
                 <p className="text-emerald-200/75 text-[14px] leading-[1.7]">
-                  Our tools can help you produce<br />
-                  everything from product<br />
-                  descriptions and blog posts to
+                  Define your financial targets, risk<br />
+                  tolerance, and investment timeline<br />
+                  for personalized recommendations
                 </p>
               </div>
             </div>
@@ -138,16 +138,16 @@ export default function WhyUs2ndSection() {
           <div 
             ref={setRef('image')}
             data-section="image"
-            className={`relative mt-[-20px] transition-all duration-1000 ${
+            className={`relative mt-[-20px] transition-all duration-1000 max-w-[480px] ${
               isVisible.image ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-20 scale-95'
             }`}
           >
             <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-[24px] p-6 relative overflow-visible hover:shadow-2xl hover:shadow-emerald-400/20 transition-all duration-500 border border-emerald-500/20">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=800&h=700&fit=crop"
-                  alt="VR Gaming Experience"
-                  className="w-full h-[560px] object-cover rounded-[18px]"
+                  src="/fintech3.jpg"
+                  alt="Financial Analytics Dashboard"
+                  className="w-full h-[480px] object-cover rounded-[18px]"
                 />
               </div>
               
@@ -155,11 +155,11 @@ export default function WhyUs2ndSection() {
               <div className={`absolute top-[120px] right-[-40px] z-20 transition-all duration-700 delay-300 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float">
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float">
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">AWS ML Solutions</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Real-Time Analytics</span>
                 </div>
               </div>
 
@@ -167,23 +167,23 @@ export default function WhyUs2ndSection() {
               <div className={`absolute top-[120px] left-[-40px] z-20 transition-all duration-700 delay-400 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '0.5s' }}>
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '0.5s' }}>
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Cloud Integration</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Portfolio Diversification</span>
                 </div>
               </div>
 
               {/* Floating Card 3 - Middle Left */}
-              <div className={`absolute top-[300px] left-[-40px] z-20 transition-all duration-700 delay-500 ${
+              <div className={`absolute top-[250px] left-[-40px] z-20 transition-all duration-700 delay-500 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '1s' }}>
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '1s' }}>
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">AI Analytics</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">AI-Powered Insights</span>
                 </div>
               </div>
 
@@ -191,23 +191,23 @@ export default function WhyUs2ndSection() {
               <div className={`absolute bottom-[100px] left-[-40px] z-20 transition-all duration-700 delay-600 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '1.5s' }}>
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '1.5s' }}>
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Generate SaaS Copy</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Risk Management</span>
                 </div>
               </div>
               
               {/* Floating Card 5 - Middle Right */}
-              <div className={`absolute top-[300px] right-[-40px] z-20 transition-all duration-700 delay-700 ${
+              <div className={`absolute top-[250px] right-[-40px] z-20 transition-all duration-700 delay-700 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '2s' }}>
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '2s' }}>
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Smart Automation</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Automated Trading</span>
                 </div>
               </div>
 
@@ -215,11 +215,11 @@ export default function WhyUs2ndSection() {
               <div className={`absolute bottom-[100px] right-[-40px] z-20 transition-all duration-700 delay-800 ${
                 isVisible.image ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}>
-                <div className="bg-emerald-500/10 border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '2.5s' }}>
+                <div className="bg-gradient-to-br from-teal-950 via-slate-900 to-black border-2 border-emerald-400 rounded-[12px] px-5 py-3 flex items-center gap-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:scale-105 hover:border-emerald-300 transition-all duration-300 animate-float" style={{ animationDelay: '2.5s' }}>
                   <svg className="w-[18px] h-[18px] text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Data Security</span>
+                  <span className="text-[14px] font-normal whitespace-nowrap text-emerald-200/75">Secure Transactions</span>
                 </div>
               </div>
             </div>
