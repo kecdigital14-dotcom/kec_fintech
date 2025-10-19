@@ -192,7 +192,7 @@ export default function Home2ndSection() {
               </motion.h3>
               
               <motion.p 
-                className="text-emerald-200/75 text-sm leading-relaxed mb-6"
+                className="text-emerald-200/75 text-sm leading-relaxed mb-6 text-justify"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -259,7 +259,7 @@ export default function Home2ndSection() {
               </motion.h3>
               
               <motion.p 
-                className="text-emerald-200/75 text-sm leading-relaxed mb-6"
+                className="text-emerald-200/75 text-sm leading-relaxed mb-6 text-justify"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -117,7 +117,7 @@ const Vision2ndSection = () => {
             </motion.div>
 
             {/* Services Grid - Top 2 */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 text-justify">
               {services.slice(0, 2).map((service, index) => (
                 <motion.div
                   key={service.id}

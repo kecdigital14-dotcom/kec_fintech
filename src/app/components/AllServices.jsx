@@ -311,7 +311,7 @@ export default function AllServices() {
         </motion.div>
 
         {/* Services Grid */}
-        <div>
+        <div className="text-justify">
           {services.map((service, index) => (
             <ServiceCard 
               key={index}

@@ -276,7 +276,7 @@ const Home8thSection = () => {
 
             {/* Right Side - Testimonial Content */}
             <motion.div 
-              className="space-y-6"
+              className="space-y-6 text-justify"
               variants={fadeInRight}
             >
               <AnimatePresence mode="wait" custom={direction}>

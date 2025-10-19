@@ -155,7 +155,7 @@ const About5thSection = () => {
           {/* Right Content - Tabs */}
           <motion.div variants={slideInRight}>
             {/* Tab Navigation */}
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-wrap gap-3 mb-6 text-justify">
               {tabs.map((tab) => (
                 <motion.button
                   key={tab}
@@ -176,7 +176,7 @@ const About5thSection = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="relative h-32 sm:h-auto">
+            <div className="relative h-32 sm:h-auto text-justify">
               <AnimatePresence mode="wait">
                 <motion.div 
                   key={activeTab}

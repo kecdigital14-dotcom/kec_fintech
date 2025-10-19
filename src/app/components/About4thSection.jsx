@@ -157,7 +157,7 @@ export default function MyCompanies() {
                 <h2 className="text-4xl font-bold text-white mb-3">
                   Kisan <span className="text-emerald-400">Experience</span>
                 </h2>
-                <p className="text-emerald-200/75 leading-relaxed">
+                <p className="text-emerald-200/75 leading-relaxed text-justify">
                   Leveraging cutting-edge technology and sustainable practices to transform modern agriculture. Our AgriTech solutions empower farmers with intelligent tools for precision farming, crop monitoring, and yield optimization.
                 </p>
               </div>
@@ -237,7 +237,7 @@ export default function MyCompanies() {
                 <h2 className="text-4xl font-bold text-white mb-3">
                   Kec <span className="text-cyan-400">Biofuel</span>
                 </h2>
-                <p className="text-emerald-200/75 leading-relaxed">
+                <p className="text-emerald-200/75 leading-relaxed text-justify">
                   Pioneering sustainable energy solutions through advanced biofuel technologies. Our innovations reduce carbon footprints and provide eco-friendly fuel alternatives for a greener future.
                 </p>
               </div>

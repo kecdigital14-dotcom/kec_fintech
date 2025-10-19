@@ -185,13 +185,13 @@ const Home5thSection = () => {
           {steps.map((step, index) => (
             <motion.div 
               key={index}
-              className="relative group"
+              className="relative group text-justify"
               variants={fadeInUp}
             >
               {/* Connection Line */}
               {index < steps.length - 1 && (
                 <motion.div 
-                  className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-emerald-400/50 to-transparent -z-10"
+                  className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-emerald-400/50 to-transparent -z-10 "
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}

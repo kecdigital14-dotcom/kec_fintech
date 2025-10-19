@@ -81,25 +81,25 @@ const Home4thSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white overflow-hidden py-4">
+    <section className="relative bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white overflow-hidden py-12 sm:py-16 lg:py-4">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/12 rounded-full blur-3xl"
+          className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-emerald-500/12 rounded-full blur-3xl"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-60 sm:w-96 h-60 sm:h-96 bg-teal-500/10 rounded-full blur-3xl"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         />
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-1/2 left-1/2 w-48 sm:w-80 h-48 sm:h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:py-4 max-w-6xl">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:py-4 max-w-6xl">
         <motion.div 
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -107,23 +107,23 @@ const Home4thSection = () => {
         >
           {/* Left Side - Image */}
           <motion.div 
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end order-2 lg:order-1"
             variants={fadeInLeft}
           >
             <motion.div 
-              className="relative max-w-md"
+              className="relative w-full max-w-md"
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <motion.img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=1000&fit=crop"
                 alt="Financial team meeting"
-                className="rounded-lg shadow-2xl max-w-[80%] border border-emerald-500/20"
+                className="rounded-lg shadow-2xl w-full sm:max-w-[80%] mx-auto border border-emerald-500/20"
                 animate={{ y: [0, -25, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Glow effect behind image */}
               <motion.div 
-                className="absolute inset-0 max-w-[80%] rounded-lg bg-gradient-to-br from-emerald-500/20 to-teal-500/20"
+                className="absolute inset-0 w-full sm:max-w-[80%] mx-auto rounded-lg bg-gradient-to-br from-emerald-500/20 to-teal-500/20"
                 animate={{ 
                   filter: ["blur(60px)", "blur(40px)", "blur(60px)"],
                   opacity: [0.15, 0.3, 0.15]
@@ -134,25 +134,25 @@ const Home4thSection = () => {
           </motion.div>
 
           {/* Right Side - Content */}
-          <div className="text-white">
+          <div className="text-white order-1 lg:order-2">
             <motion.div 
-              className="mb-8"
+              className="mb-6 sm:mb-8"
               variants={fadeInRight}
             >
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <motion.div 
                   className="h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400"
                   variants={lineSlide}
                 />
                 <motion.span 
-                  className="text-emerald-300 text-sm font-semibold tracking-wider uppercase"
+                  className="text-emerald-300 text-xs sm:text-sm font-semibold tracking-wider uppercase"
                   variants={fadeInUp}
                 >
                   Why Choose Us
                 </motion.span>
               </div>
               <motion.h2 
-                className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent leading-tight"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent leading-tight"
                 variants={fadeInUp}
               >
                 Your Trusted Financial<br />
@@ -161,7 +161,7 @@ const Home4thSection = () => {
             </motion.div>
 
             {/* Services Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 text-justify">
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
@@ -178,9 +178,9 @@ const Home4thSection = () => {
                     }
                   }}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     <motion.div 
-                      className={`${service.bgColor} p-3 rounded-full flex-shrink-0`}
+                      className={`${service.bgColor} p-2.5 sm:p-3 rounded-full flex-shrink-0`}
                       whileHover={{ 
                         scale: 1.1,
                         y: -5,
@@ -210,12 +210,12 @@ const Home4thSection = () => {
                           delay: index * 0.2 
                         }}
                       >
-                        <service.icon className="w-6 h-6 text-white" />
+                        <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </motion.div>
                     </motion.div>
                     <div className="flex-1">
                       <motion.h3 
-                        className="text-lg font-semibold mb-2 text-white"
+                        className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-white"
                         animate={{ 
                           textShadow: [
                             "0 0 0px rgba(34, 197, 94, 0)",
@@ -233,7 +233,7 @@ const Home4thSection = () => {
                         {service.title}
                       </motion.h3>
                       <motion.p 
-                        className="text-emerald-200/75 text-sm leading-relaxed"
+                        className="text-emerald-200/75 text-xs sm:text-sm leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

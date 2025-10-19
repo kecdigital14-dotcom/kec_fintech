@@ -91,7 +91,7 @@ export default function WhyUs2ndSection() {
               </div>
               <div className="pt-[2px]">
                 <h3 className="text-[20px] font-bold mb-3 text-white">Create Your Account</h3>
-                <p className="text-emerald-200/75 text-[14px] leading-[1.7]">
+                <p className="text-emerald-200/75 text-[14px] leading-[1.7] text-justify">
                   Start your investment journey by<br />
                   signing up with your email and<br />
                   secure credentials.
@@ -108,7 +108,7 @@ export default function WhyUs2ndSection() {
               </div>
               <div className="pt-[2px]">
                 <h3 className="text-[20px] font-bold mb-3 text-white">Choose Investment Strategy</h3>
-                <p className="text-emerald-200/75 text-[14px] leading-[1.7] mb-6">
+                <p className="text-emerald-200/75 text-[14px] leading-[1.7] mb-6 text-justify">
                   Select from diversified portfolios,<br />
                   stocks, bonds, crypto assets, or<br />
                   customize your own strategy
@@ -125,7 +125,7 @@ export default function WhyUs2ndSection() {
               </div>
               <div className="pt-[2px]">
                 <h3 className="text-[20px] font-bold mb-3 text-white">Set Your Goals</h3>
-                <p className="text-emerald-200/75 text-[14px] leading-[1.7]">
+                <p className="text-emerald-200/75 text-[14px] leading-[1.7] text-justify">
                   Define your financial targets, risk<br />
                   tolerance, and investment timeline<br />
                   for personalized recommendations

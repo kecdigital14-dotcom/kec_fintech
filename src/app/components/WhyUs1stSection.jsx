@@ -40,19 +40,19 @@ export default function WhyUs1stSection() {
     <section className="min-h-screen bg-gradient-to-br from-teal-950 via-slate-900 to-black text-white overflow-hidden relative">
       {/* Animated background elements */}
       <motion.div 
-        className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/12 rounded-full blur-3xl"
+        className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-emerald-500/12 rounded-full blur-3xl"
         animate={{ y: [0, -8, 0], opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div 
-        className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"
+        className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-60 sm:w-96 h-60 sm:h-96 bg-teal-500/10 rounded-full blur-3xl"
         animate={{ rotate: 360, opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       />
-      <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute top-1/2 left-1/2 w-48 sm:w-80 h-48 sm:h-80 bg-cyan-400/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           
           {/* Left Side - Image with Interactive Effects */}
           <motion.div 
@@ -60,14 +60,14 @@ export default function WhyUs1stSection() {
             initial={{ opacity: 0, x: -80 }}
             animate={isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center lg:justify-start"
+            className="relative flex justify-center lg:justify-start order-2 lg:order-1"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             onMouseEnter={() => setIsHovered(true)}
           >
             {/* Teal Accent Border */}
             <motion.div 
-              className="absolute -inset-6 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-3xl blur-xl"
+              className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl sm:rounded-3xl blur-xl"
               initial={{ opacity: 0.15 }}
               whileHover={{ opacity: 0.25 }}
               transition={{ duration: 0.5 }}
@@ -75,7 +75,7 @@ export default function WhyUs1stSection() {
 
             {/* Floating Cards Background Effect */}
             <motion.div 
-              className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-3xl opacity-20"
+              className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl sm:rounded-3xl opacity-20"
               animate={{
                 y: [0, -20, 0],
                 rotate: [-12, -7, -12]
@@ -87,7 +87,7 @@ export default function WhyUs1stSection() {
               }}
             />
             <motion.div 
-              className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-cyan-400 to-teal-600 rounded-3xl opacity-20"
+              className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-br from-cyan-400 to-teal-600 rounded-2xl sm:rounded-3xl opacity-20"
               animate={{
                 y: [0, -20, 0],
                 rotate: [12, 17, 12]
@@ -102,7 +102,7 @@ export default function WhyUs1stSection() {
 
             {/* Main Image Container */}
             <motion.div 
-              className="relative z-10 rounded-3xl overflow-hidden shadow-2xl max-w-md w-full group cursor-pointer border-4 border-emerald-500/20"
+              className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl max-w-md w-full group cursor-pointer border-2 sm:border-4 border-emerald-500/20"
               style={{
                 rotateX: isHovered ? rotateX : 0,
                 rotateY: isHovered ? rotateY : 0,
@@ -127,7 +127,7 @@ export default function WhyUs1stSection() {
               <motion.img 
                 src="/fintech1.jpg"
                 alt="Business Consultants"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[400px] sm:h-[500px] object-cover"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               />
@@ -135,23 +135,23 @@ export default function WhyUs1stSection() {
 
             {/* Floating Stats */}
             <motion.div 
-              className="absolute -bottom-6 -right-6 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl shadow-2xl p-6 z-20 border border-emerald-500/20"
+              className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 z-20 border border-emerald-500/20"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isImageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               whileHover={{ y: -8, boxShadow: "0 25px 50px -12px rgba(34, 197, 94, 0.25)" }}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <motion.div 
-                  className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Sparkles className="w-6 h-6 text-white" />
+                  <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </motion.div>
                 <div>
-                  <p className="text-sm font-bold text-white">500+</p>
-                  <p className="text-xs text-emerald-200/75">Satisfied Clients</p>
+                  <p className="text-xs sm:text-sm font-bold text-white">500+</p>
+                  <p className="text-[10px] sm:text-xs text-emerald-200/75">Satisfied Clients</p>
                 </div>
               </div>
             </motion.div>
@@ -160,7 +160,7 @@ export default function WhyUs1stSection() {
           {/* Right Side - Content */}
           <div 
             ref={contentRef}
-            className="space-y-8 md:space-y-4"
+            className="space-y-6 sm:space-y-8 md:space-y-4 order-1 lg:order-2"
           >
             {/* Badge with Animation */}
             <motion.div
@@ -179,8 +179,8 @@ export default function WhyUs1stSection() {
                   whileHover={{ opacity: 0.5 }}
                   transition={{ duration: 0.3 }}
                 />
-                <span className="relative bg-gradient-to-br from-emerald-500/20 to-teal-500/20 text-emerald-300 text-xs md:text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-2 border border-emerald-500/20 group-hover:bg-emerald-500/30 transition-colors">
-                  <Sparkles className="w-4 h-4" />
+                <span className="relative bg-gradient-to-br from-emerald-500/20 to-teal-500/20 text-emerald-300 text-xs md:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex items-center gap-2 border border-emerald-500/20 group-hover:bg-emerald-500/30 transition-colors">
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
                   Why Us
                 </span>
               </motion.div>
@@ -188,17 +188,17 @@ export default function WhyUs1stSection() {
 
             {/* Heading */}
             <motion.div 
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-tight text-white">
                 Partner With Our{' '}
                 <span className="relative inline-block">
                   <span className="relative z-10 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Trusted</span>
                   <motion.svg 
-                    className="absolute -bottom-3 left-0 w-full h-4 text-emerald-400 opacity-70"
+                    className="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-4 text-emerald-400 opacity-70"
                     viewBox="0 0 300 20"
                     preserveAspectRatio="none"
                     initial={{ pathLength: 0 }}
@@ -220,7 +220,7 @@ export default function WhyUs1stSection() {
 
             {/* Description */}
             <motion.div 
-              className="space-y-5 text-emerald-200/75 text-[15.5px] leading-relaxed"
+              className="space-y-4 sm:space-y-5 text-emerald-200/75 text-sm sm:text-[15.5px] leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -241,13 +241,13 @@ export default function WhyUs1stSection() {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 pt-6"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6"
               initial={{ opacity: 0, y: 20 }}
               animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
               <motion.button 
-                className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-gradient-to-r from-emerald-400 to-teal-600 rounded-full overflow-hidden"
+                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 font-bold text-white bg-gradient-to-r from-emerald-400 to-teal-600 rounded-full overflow-hidden text-sm sm:text-base"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 20px 50px rgba(34, 197, 94, 0.5)"
@@ -266,13 +266,13 @@ export default function WhyUs1stSection() {
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.div>
                 </span>
               </motion.button>
               
               <motion.button 
-                className="group px-8 py-4 font-bold text-emerald-300 border-2 border-emerald-500/20 rounded-full relative overflow-hidden"
+                className="group px-6 sm:px-8 py-3 sm:py-4 font-bold text-emerald-300 border-2 border-emerald-500/20 rounded-full relative overflow-hidden text-sm sm:text-base"
                 whileHover={{ 
                   scale: 1.05,
                   borderColor: "rgb(45, 212, 191)"
@@ -292,7 +292,7 @@ export default function WhyUs1stSection() {
 
             {/* Trust Indicators */}
             <motion.div 
-              className="flex gap-6 pt-4 border-t border-emerald-500/20"
+              className="flex flex-wrap gap-4 sm:gap-6 pt-3 sm:pt-4 border-t border-emerald-500/20"
               initial={{ opacity: 0, y: 20 }}
               animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -308,8 +308,8 @@ export default function WhyUs1stSection() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
-                  <p className="text-sm text-emerald-200/75">{stat.label}</p>
+                  <p className={`text-xl sm:text-2xl font-bold ${stat.color}`}>{stat.value}</p>
+                  <p className="text-xs sm:text-sm text-emerald-200/75">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
