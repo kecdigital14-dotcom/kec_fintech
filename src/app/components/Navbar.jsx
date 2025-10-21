@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Youtube, Linkedin, Phone, Instagram, Globe, Menu, X } from 'lucide-react';
+import { Facebook, Youtube, Linkedin, Phone, Instagram, Globe, Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,17 +40,52 @@ export default function Navbar() {
           <Link href="/" className="text-[#1a4d4d] hover:text-[#0f3838] transition-colors font-bold">
             Home
           </Link>
-          <Link href="/about" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
-            About Us
-          </Link>
-          <Link href="/whyus" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
-            Why Us
-          </Link>
+          
+          {/* About Us with Dropdown */}
+          <div className="relative">
+            <button 
+              onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+              className="flex items-center gap-1 text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
+            >
+              About Us
+              <ChevronDown size={16} className={`transition-transform ${isAboutDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isAboutDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[110px] z-50">
+                <Link 
+                  href="/about" 
+                  className="block px-4 py-2 text-[#1a4d4d] hover:bg-gray-100 hover:text-[#0f3838] transition-colors font-bold"
+                  onClick={() => setIsAboutDropdownOpen(false)}
+                >
+                  About Fintech
+                </Link>
+                <Link 
+                  href="/whyus" 
+                  className="block px-4 py-2 text-[#1a4d4d] hover:bg-gray-100 hover:text-[#0f3838] transition-colors font-bold"
+                  onClick={() => setIsAboutDropdownOpen(false)}
+                >
+                  Why Us
+                </Link>
+                <Link 
+                  href="/thevision" 
+                  className="block px-4 py-2 text-[#1a4d4d] hover:bg-gray-100 hover:text-[#0f3838] transition-colors font-bold"
+                  onClick={() => setIsAboutDropdownOpen(false)}
+                >
+                  Our Vision
+                </Link>
+              </div>
+            )}
+          </div>
+          
           <Link href="/ourservices" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
             Our Services
           </Link>
-          <Link href="/thevision" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
-            The Vision
+          <Link href="/projects" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
+            Portfolio
+          </Link>
+          <Link href="/policies" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
+            Policies
           </Link>
           <Link href="/resources" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
             Resources
@@ -144,20 +181,53 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link 
-              href="/about" 
-              className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link 
-              href="/whyus" 
-              className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Why Us
-            </Link>
+            
+            {/* Mobile About Us with Submenu */}
+            <div>
+              <button 
+                onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                className="flex items-center justify-between w-full text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
+              >
+                About Us
+                <ChevronDown size={16} className={`transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isMobileAboutOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  <Link 
+                    href="/about" 
+                    className="text-[#1a4d4d] hover:text-[#0f3838] transition-colors"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsMobileAboutOpen(false);
+                    }}
+                  >
+                    About Fintech
+                  </Link>
+                  <Link 
+                    href="/whyus" 
+                    className="text-[#1a4d4d] hover:text-[#0f3838] transition-colors"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsMobileAboutOpen(false);
+                    }}
+                  >
+                    Why Us
+                  </Link>
+                  <Link 
+                    href="/thevision" 
+                    className="text-[#1a4d4d] hover:text-[#0f3838] transition-colors"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsMobileAboutOpen(false);
+                    }}
+                  >
+                    Our Vision
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link 
               href="/ourservices" 
               className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
@@ -166,22 +236,19 @@ export default function Navbar() {
               Our Services
             </Link>
             <Link 
-              href="/thevision" 
-              className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              The Vision
-            </Link>
-            <Link 
               href="/resources" 
               className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Resources
             </Link>
-            <Link href="/lendingpartners" className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors">
-            Lending Partners
-          </Link>
+            <Link 
+              href="/lendingpartners" 
+              className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Lending Partners
+            </Link>
             <Link 
               href="/contact" 
               className="text-[#1a4d4d] font-bold hover:text-[#0f3838] transition-colors"
